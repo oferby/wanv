@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>wanv-runtime</artifactId>
+	<version>0.3-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>com.huawei.sdn</groupId>
+		<artifactId>wanv-parent</artifactId>
+		<version>0.3-SNAPSHOT</version>
+		<relativePath>../wanv-parent</relativePath>
+	</parent>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<!-- unpack opendaylight/activemq -->
+					<execution>
+						<id>unpack-opendaylight</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.opendaylight.integration</groupId>
+									<artifactId>distributions-base</artifactId>
+									<classifier>osgipackage</classifier>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/wanv</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.apache.activemq</groupId>
+									<artifactId>apache-activemq</artifactId>
+									<classifier>bin</classifier>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/wanv</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<!-- add opendaylight plugins -->
+					<execution>
+						<id>copy-opendaylight-plugins</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/wanv/opendaylight/plugins</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.huawei.sdn</groupId>
+									<artifactId>wanv-pathselector</artifactId>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- rename activemq dir -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>rename-activemq</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<move file="${project.build.directory}/wanv/apache-activemq-5.10.0"
+									tofile="${project.build.directory}/wanv/activemq" />
+								<delete dir="${project.build.directory}/wanv/activemq/docs" />
+								<delete dir="${project.build.directory}/wanv/activemq/examples" />
+								<delete dir="${project.build.directory}/wanv/activemq/webapps-demo" />
+                                <delete>
+                                    <fileset dir="${project.build.directory}/wanv/opendaylight/plugins" includes="*samples*.jar"/>
+                                    <fileset dir="${project.build.directory}/wanv/opendaylight/configuration/initial" includes="03-toaster-sample.xml"/>
+                                </delete>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<!-- copy configuration/script files -->
+					<execution>
+						<id>copy-files</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/wanv</outputDirectory>
+							<overwrite>true</overwrite>
+							<resources>
+								<resource>
+									<directory>src/main/config</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>src/assembly/wanv-assembly.xml</descriptor>
+							<finalName>wanv-${project.version}</finalName>
+							<tarLongFileMode>gnu</tarLongFileMode>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>metrics</module>
+        <!--<module>traffic-gen</module>-->
+	</modules>
+</project>

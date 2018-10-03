@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="Copyright" content="Copyright (c) Huawei, all rights reserved.">
+    <title>Huawei - WAN Virtualization</title>
+    <link rel="stylesheet" href="stylesheets/default.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
+    <link rel="stylesheet" href="stylesheets/monitoring.css">
+
+
+    <script src="javascripts/html5.js"></script>
+    <script src="javascripts/jquery-1.11.1.min.js"></script>
+    <script src="javascripts/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascripts/log.js"></script>
+
+</head>
+<body bgcolor="#FFFFFF">
+<header id="mast">
+    <img src="images/Title.jpg" alt="" border="0">
+</header>
+<nav id="global">
+    <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="Monitoring.html">Monitoring</a></li>
+        <li><a href="Configuration.html">Configuration</a></li>
+        <li><a href="Policy.html">Policy</a></li>
+        <li><a href="Analytics.html">Analytics</a></li>
+        <li><a class="selected" href="Log.html">Log</a></li>
+    </ul>
+</nav>
+<br><br><br><br>
+
+<div id="page" style="width:1000px;margin: 0 auto;">
+    <div style="padding-top:10px;display:block;">
+        <div style="width:300px;float:left;">Filter by:
+            <input type="button" onclick="filterReport('all');" value="All">&nbsp;
+            <input type="button" onclick="filterReport('new');" value="New">&nbsp;
+            <input type="button" onclick="filterReport('open');" value="Open">&nbsp;
+            <input type="button" onclick="filterReport('cleared');" value="Cleared">&nbsp;
+        </div>
+
+        <div style="width:250px;float:right;text-align:right;">Actions:
+            <input type="button" onclick="purgeEvents();" value="Purge events">&nbsp;
+            <input type="button" onclick="clearAll();"" value="Clear all">
+        </div>
+    </div>
+    <div style="padding-top:10px;clear:both;"></div>
+
+    <div id="container">
+    </div>
+</div>
+
+<script>
+    $( document ).ready(function() {
+        displayLog();
+    });
+</script>
+
+<font size="15"><b><font color="#FF001A" id="errorMessage"/></b></font></font><br><br>
+
+</div>
+
+
+</body>
+</html>

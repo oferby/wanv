@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/console.css">
+    <!--<script src= "javascripts/angular.min.js"></script>-->
+    <script src= "javascripts/angular.min.js"></script>
+</head>
+
+<body>
+<div class="menu">
+    <ul>
+        <li><a href="connectors.html">Connectors</a></li>
+        <li><a href="routes.html">Routes</a></li>
+        <li><a href="#">Flows</a></li>
+        <li></li>
+    </ul>
+</div>
+
+<div ng-app="" ng-controller="flowController">
+    <table>
+        <tr>
+            <td class="header">ID</td>
+            <td class="header">Group ID</td>
+            <td class="header">Out Connector</td>
+            <td class="header">Queue</td>
+            <td class="header">Creation Time</td>
+            <td class="header">Source IP</td>
+            <td class="header">Source Port</td>
+            <td class="header">Dest IP</td>
+            <td class="header">Dest Port</td>
+            <td class="header">DL Type</td>
+            <td class="header">TOS</td>
+        </tr>
+        <tr ng-repeat="x in flows">
+            <td>{{ x.id }}</td>
+            <td>{{ x.groupId }}</td>
+            <td>{{ x.connectorOut.id }}</td>
+            <td>{{ x.queue.id }}</td>
+            <td>{{ x.creationTime }}</td>
+            <td>{{ x.srcIp }}</td>
+            <td>{{ x.tpSrc }}</td>
+            <td>{{ x.dstIp }}</td>
+            <td>{{ x.tpDst }}</td>
+            <td>{{ x.dlType }}</td>
+            <td>{{ x.nwTOS }}</td>
+        </tr>
+    </table>
+
+
+</div>
+
+<!--<script src="javascripts/controller/localDataController.js"></script>-->
+<script src="javascripts/controller/restDataController.js"></script>
+
+</body>
+</html>

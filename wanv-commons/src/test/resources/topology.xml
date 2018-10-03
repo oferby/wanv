@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<topology switch-name="br-wanv">
+	<sites>
+		<site id="site1">
+			<ip_addresses>
+				<ip_address id="1">10.1.50.2/30</ip_address>
+				<ip_address id="2">10.1.60.2/30</ip_address>
+				<ip_address id="3">10.1.70.2/30</ip_address>
+				<ip_address id="4">10.1.80.2/30</ip_address>
+				<ip_address id="5">192.168.100.254/24</ip_address>
+			</ip_addresses>
+			<tunnels>
+				<tunnel id="6" local_ip="10.1.50.2" remote_ip="10.2.50.2">
+					<param name="performance_metrics_port">9444</param>
+					<param name="key">1</param>
+				</tunnel>
+				<tunnel id="7" local_ip="10.1.60.2" remote_ip="10.2.60.2">
+					<param name="performance_metrics_port">9445</param>
+					<param name="key">2</param>
+				</tunnel>
+				<tunnel id="8" local_ip="10.1.70.2" remote_ip="10.2.70.2">
+					<param name="performance_metrics_port">9446</param>
+					<param name="key">3</param>
+				</tunnel>
+				<tunnel id="9" local_ip="10.1.80.2" remote_ip="10.2.80.2">
+					<param name="performance_metrics_port">9447</param>
+					<param name="key">4</param>
+				</tunnel>
+			</tunnels>
+			<routes>
+				<route id="10" des="0.0.0.0/0" gw="10.1.50.1">
+                    <!-- 3m -->
+                    <param name="max-rate">3145728</param>
+                    <param name="burst">512</param>
+                </route>
+                <route id="11" des="0.0.0.0/0" gw="10.1.60.1">
+                    <!-- 15m -->
+                    <param name="max-rate">15728640</param>
+                    <param name="burst">512</param>
+                </route>
+                <route id="12" des="0.0.0.0/0" gw="10.1.70.1">
+                    <!-- 15m -->
+                    <param name="max-rate">15728640</param>
+                    <param name="burst">512</param>
+                </route>
+                <route id="13" des="0.0.0.0/0" gw="10.1.80.1">
+                    <!-- 10m -->
+					<param name="max-rate">10485760</param>
+					<param name="burst">512</param>
+				</route>
+                <route id="18" des="192.168.101.0/24" gw="192.168.100.11" publish="true">
+                </route>
+			</routes>
+		</site>
+		<site id="site2">
+			<ip_addresses>
+				<ip_address id="1">10.2.50.2/30</ip_address>
+                <ip_address id="2">10.2.60.2/30</ip_address>
+                <ip_address id="3">10.2.70.2/30</ip_address>
+                <ip_address id="4">10.2.80.2/30</ip_address>
+                <ip_address id="5">192.168.200.254/24</ip_address>
+			</ip_addresses>
+			<tunnels>
+				<tunnel id="6" local_ip="10.2.50.2" remote_ip="10.1.50.2">
+					<param name="performance_metrics_port">9444</param>
+					<param name="key">1</param>
+				</tunnel>
+				<tunnel id="7" local_ip="10.2.60.2" remote_ip="10.1.60.2">
+					<param name="performance_metrics_port">9445</param>
+					<param name="key">2</param>
+				</tunnel>
+				<tunnel id="8" local_ip="10.2.70.2" remote_ip="10.1.70.2">
+					<param name="performance_metrics_port">9446</param>
+					<param name="key">3</param>
+				</tunnel>
+				<tunnel id="9" local_ip="10.2.80.2" remote_ip="10.1.80.2">
+					<param name="performance_metrics_port">9447</param>
+					<param name="key">4</param>
+				</tunnel>
+			</tunnels>
+			<routes>
+				<route id="10" des="0.0.0.0/0" gw="10.2.50.1">
+					<!-- 3m -->
+					<param name="max-rate">3145728</param>
+					<param name="burst">512</param>
+				</route>
+				<route id="11" des="0.0.0.0/0" gw="10.2.60.1">
+					<!-- 15m -->
+					<param name="max-rate">15728640</param>
+					<param name="burst">512</param>
+				</route>
+				<route id="12" des="0.0.0.0/0" gw="10.2.70.1">
+					<!-- 15m -->
+					<param name="max-rate">15728640</param>
+					<param name="burst">512</param>
+				</route>
+				<route id="13" des="0.0.0.0/0" gw="10.2.80.1">
+					<!-- 10m -->
+					<param name="max-rate">10485760</param>
+					<param name="burst">512</param>
+				</route>
+			</routes>
+		</site>
+	</sites>
+	<queues>
+		<!-- tos=dscp -->
+		<!-- real-time queue -->
+		<queue priority="0" id="1">
+			<tos-list>
+				<tos>48</tos>
+				<tos>46</tos>
+				<tos>44</tos>
+				<tos>32</tos>
+			</tos-list>
+		</queue>
+		<!-- control data -->
+		<queue min-rate="10%" id="2">
+			<tos-list>
+				<tos>56</tos>
+				<tos>48</tos>
+			</tos-list>
+		</queue>
+		<!-- critical data -->
+		<queue min-rate="40%" id="3">
+			<tos-list>
+				<tos>38</tos>
+				<tos>36</tos>
+				<tos>34</tos>
+				<tos>30</tos>
+				<tos>26</tos>
+				<tos>28</tos>
+				<tos>24</tos>
+			</tos-list>
+		</queue>
+	</queues>
+	<operations>
+		<operation name="heartbeat" interval="1000" isEnabled="true" />
+	</operations>
+</topology>
+

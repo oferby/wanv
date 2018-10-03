@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="JAVA_HOME" value="D:\dev\jdk"/>
+<mapEntry key="MAVEN_OPTS" value="-Xmx1024m -XX:MaxPermSize=512m"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="D:\dev\maven\bin\mvn.bat"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="eclipse:clean eclipse:eclipse -DskipTests -DdownloadSources -DdownloadJavadocs"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/wanv-parent}"/>
+</launchConfiguration>

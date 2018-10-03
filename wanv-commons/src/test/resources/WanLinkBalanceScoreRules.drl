@@ -1,0 +1,72 @@
+dialect "java"
+
+import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScoreHolder;
+
+import com.huawei.sdn.commons.data.PSFlow;
+import com.huawei.sdn.commons.data.PSConnector;
+import com.huawei.sdn.commons.selector.csp.planning.LinkSelectionSolution;
+
+global HardMediumSoftScoreHolder scoreHolder;
+
+// ############################################################################
+// Hard constraints
+// ############################################################################
+
+rule "NullPort"
+
+    when
+        $flow : PSFlow(connectorOut == null)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
+end
+
+rule "requiredType"
+    when
+        $link : PSConnector($type : type)
+        $flow : PSFlow(   type != $type,
+                        connectorOut == $link)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -10);
+end
+
+rule "LinkDown"
+    when
+        $link : PSConnector(active == false)
+        $flow : PSFlow(connectorOut == $link)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -100);
+
+end
+
+
+
+// ############################################################################
+// Medium constraints
+// ############################################################################
+
+rule "packetLoss"
+    when
+        $link : PSConnector(connectorStatistics.packetLossRate > 0)
+        $flow : PSFlow(connectorOut == $link, tpDst == 20000)
+    then
+        scoreHolder.addMediumConstraintMatch(kcontext, -1);
+end
+
+
+
+// ############################################################################
+// Soft constraints
+// ############################################################################
+
+rule "balanceLinks"
+    when
+        $link : PSConnector()
+        $cost : Number() from accumulate( PSFlow(connectorOut == $link, $singleFlow : 1),
+        sum($singleFlow))
+
+    then
+        scoreHolder.addSoftConstraintMatch(kcontext, -$cost.intValue()*$cost.intValue());
+end
+
+
+

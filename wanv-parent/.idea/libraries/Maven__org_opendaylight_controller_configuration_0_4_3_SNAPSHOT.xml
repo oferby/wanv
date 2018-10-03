@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.opendaylight.controller:configuration:0.4.3-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/configuration/0.4.3-SNAPSHOT/configuration-0.4.3-20140909.113133-983.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/configuration/0.4.3-SNAPSHOT/configuration-0.4.3-20140909.113133-983-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/configuration/0.4.3-SNAPSHOT/configuration-0.4.3-20140909.113133-983-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../metrics/metricsAgent.iml" filepath="$PROJECT_DIR$/../metrics/metricsAgent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wanv-commons/wanv-commons.iml" filepath="$PROJECT_DIR$/../wanv-commons/wanv-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wanv-metrics/wanv-metrics.iml" filepath="$PROJECT_DIR$/../wanv-metrics/wanv-metrics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wanv-runtime/metrics/wanv-metrics-lib.iml" filepath="$PROJECT_DIR$/../wanv-runtime/metrics/wanv-metrics-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wanv-parent.iml" filepath="$PROJECT_DIR$/wanv-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wanv-pathselector/wanv-pathselector.iml" filepath="$PROJECT_DIR$/../wanv-pathselector/wanv-pathselector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wanv-runtime/wanv-runtime.iml" filepath="$PROJECT_DIR$/../wanv-runtime/wanv-runtime.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.opendaylight.controller:statisticsmanager:0.5.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/statisticsmanager/0.5.1-SNAPSHOT/statisticsmanager-0.5.1-20140909.113254-1146.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/statisticsmanager/0.5.1-SNAPSHOT/statisticsmanager-0.5.1-20140909.113254-1146-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/statisticsmanager/0.5.1-SNAPSHOT/statisticsmanager-0.5.1-20140909.113254-1146-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

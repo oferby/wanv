@@ -1,0 +1,44 @@
+div.menu {
+    width: 100%;
+    /*background-color: black;*/
+    /*position: fixed;*/
+    top: 0;
+}
+
+div.menu ul {
+    padding-left: 0;
+}
+
+div.menu ul li{
+    display:inline;
+}
+
+div.menu ul li a {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+
+}
+
+div.menu ul li a:hover {
+    background-color: gray;
+}
+
+table {
+    width: 100%;
+    padding-left: 40px;
+}
+
+td.header {
+    background-color: rgb(119, 116, 116);;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}

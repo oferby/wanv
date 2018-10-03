@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="Copyright" content="Copyright (c) Huawei, all rights reserved.">
+    <title>Huawei - WAN Virtualization</title>
+    <link rel="stylesheet" href="stylesheets/default.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
+
+    <script type="text/javascript" src="javascripts/html5.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/configurationFormHandler.js"></script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+    <header id="mast">
+        <img src="images/Title.jpg" alt="" border="0">
+    </header>
+    <nav id="global">
+        <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="Monitoring.html">Monitoring</a></li>
+            <li><a class="selected" href="Configuration.html">Configuration</a></li>
+            <li><a href="Policy.html">Policy</a></li>
+            <li><a href="Analytics.html">Analytics</a></li>
+            <li><a href="Log.html">Log</a></li>
+        </ul>
+    </nav>
+
+    <br><br><br><br><br><br>
+
+    <div id="tables" >
+
+        <script>
+
+            var localIps = {
+                name: "Local IP Addresses",
+                fields: ["ID", "Local IP Address", "Local Subnet"],
+                ids: ["id", "localIpAddress", "localSubnet"]
+            };
+          
+            printTable(localIps);
+
+
+            var gatewayTable = {
+                name: "Gateways",
+                fields: ["ID","IP Address"],
+                ids: ["id","gwIpAddress"]
+            };
+
+            printTable(gatewayTable);
+           
+            var tunnelTable = {
+                name: "Tunnels",
+                fields: ["Tunnel ID", "Local IP", "Remote IP"],
+                ids: ["id", "localIp", "remoteIp"]
+            };
+            printTable(tunnelTable);
+
+            //var routeTable = {
+            //    name: "Static Routes",
+            //    fields: ["Route ID", "Destination IP Address", "Destination Subnet", "Next Hop"],
+            //    ids: ["id", "destinationIpAddress", "destinationSubnet", "nextHop"]
+            //};
+            //printTable(routeTable);
+
+            init();
+
+        </script>
+    </div>
+
+</body>
+</html>
+

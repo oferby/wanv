@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.opendaylight.controller:forwardingrulesmanager:0.6.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/forwardingrulesmanager/0.6.0-SNAPSHOT/forwardingrulesmanager-0.6.0-20140909.113204-822.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/forwardingrulesmanager/0.6.0-SNAPSHOT/forwardingrulesmanager-0.6.0-20140909.113204-822-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/controller/forwardingrulesmanager/0.6.0-SNAPSHOT/forwardingrulesmanager-0.6.0-20140909.113204-822-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

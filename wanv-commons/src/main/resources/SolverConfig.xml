@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+
+    <!-- Domain model configuration -->
+    <solutionClass>com.huawei.sdn.commons.selector.csp.planning.LinkSelectionSolution</solutionClass>
+    <entityClass>com.huawei.sdn.commons.data.PSFlow</entityClass>
+    <!--<environmentMode>REPRODUCIBLE</environmentMode>-->
+    <environmentMode>PRODUCTION</environmentMode>
+
+    <!-- Score configuration -->
+    <scoreDirectorFactory>
+        <scoreDefinitionType>HARD_MEDIUM_SOFT</scoreDefinitionType>
+        <!--<simpleScoreCalculatorClass>com.test.planning.LinkBalancingSimpleScoreCalculator</simpleScoreCalculatorClass>-->
+        <scoreDrl>HardScoreRules.drl</scoreDrl>
+        <scoreDrl>MediumScoreRules.drl</scoreDrl>
+        <scoreDrl>SoftScoreRules.drl</scoreDrl>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_UP/ONLY_DOWN</initializingScoreTrend>
+    </scoreDirectorFactory>
+
+    <!--Optimization algorithms configuration-->
+    <!--<termination>-->
+    <!--<maximumSecondsSpend>13</maximumSecondsSpend>-->
+    <!--</termination>-->
+    <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+        <forager>
+            <pickEarlyType>NEVER</pickEarlyType>
+        </forager>
+    </constructionHeuristic>
+    <localSearch>
+        <unionMoveSelector>
+            <changeMoveSelector>
+                <valueSelector>
+                    <variableName>queue</variableName>
+                </valueSelector>
+            </changeMoveSelector>
+            <changeMoveSelector>
+                <valueSelector>
+                    <variableName>connectorOut</variableName>
+                </valueSelector>
+            </changeMoveSelector>
+        </unionMoveSelector>
+        <acceptor>
+            <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager>
+            <acceptedCountLimit>1000</acceptedCountLimit>
+        </forager>
+    </localSearch>
+
+
+</solver>

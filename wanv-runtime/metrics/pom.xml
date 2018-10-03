@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>wanv-metrics-lib</artifactId>
+	<version>0.3-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>com.huawei.sdn</groupId>
+		<artifactId>wanv-parent</artifactId>
+		<version>0.3-SNAPSHOT</version>
+		<relativePath>../../wanv-parent</relativePath>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>com.huawei.sdn</groupId>
+			<artifactId>wanv-metrics</artifactId>
+            <version>0.3-SNAPSHOT</version>
+        </dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<!-- add metrics libs -->
+					<execution>
+						<id>copy-metrics-libs</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

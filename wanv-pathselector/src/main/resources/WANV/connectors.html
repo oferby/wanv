@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/console.css">
+    <!--<script src= "javascripts/angular.min.js"></script>-->
+    <script src= "javascripts/angular.min.js"></script>
+</head>
+
+<body>
+<div class="menu">
+    <ul>
+        <li><a href="#">Connectors</a></li>
+        <li><a href="routes.html">Routes</a></li>
+        <li><a href="flows.html">Flows</a></li>
+    </ul>
+</div><br/>
+<div ng-app="" ng-controller="customersController">
+    <table>
+        <tr>
+            <td class="header">ID</td>
+            <td class="header">Group ID</td>
+            <td class="header">Local IP</td>
+            <td class="header">Dest Address</td>
+            <td class="header">Next Hop</td>
+            <td class="header">Local MAC</td>
+            <td class="header">Remote MAC</td>
+            <td class="header">Type</td>
+            <td class="header">Active</td>
+        </tr>
+        <tr ng-repeat="x in connectors">
+            <td>{{ x.id }}</td>
+            <td>{{ x.groupId }}</td>
+            <td>{{ x.localIPAddress }}</td>
+            <td>{{ x.destinationAddress }}</td>
+            <td>{{ x.nextHopIpAddress }}</td>
+            <td>{{ x.localMacAddress }}</td>
+            <td>{{ x.remoteMacAddress }}</td>
+            <td>{{ x.type }}</td>
+            <td>{{ x.active }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<!--<script src="javascripts/controller/localDataController.js"></script>-->
+<script src="javascripts/controller/restDataController.js"></script>
+
+</body>
+</html>

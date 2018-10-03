@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="Copyright" content="Copyright (c) Huawei, all rights reserved.">
+    <title>Huawei - WAN Virtualization</title>
+
+    <link rel="stylesheet" href="stylesheets/default.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/dropList.css" />
+
+    <script type="text/javascript" src="javascripts/html5.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/policyHandler.js"></script>
+    <script type='text/javascript' src='javascripts/dropList.js'></script>
+    <script type='text/javascript' src='javascripts/lexer.js'></script>
+
+
+
+
+
+</head>
+
+<body bgcolor="#FFFFFF">
+    <header id="mast">
+        <img src="images/Title.jpg" alt="" border="0">
+    </header>
+    <nav id="global">
+        <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="Monitoring.html">Monitoring</a></li>
+            <li><a href="Configuration.html">Configuration</a></li>
+            <li><a class="selected" href=" policy.html">Policy</a></li>
+            <li><a href="Analytics.html">Analytics</a></li>
+            <li><a href="Log.html">Log</a></li>
+
+        </ul>
+    </nav>
+
+    <br><br><br><br><br>
+    
+    <div id="errorMessage"></div>
+
+    <div id="container"></div>
+
+    <script>
+        buildTables();
+        initClassModelTable();
+        initPolicies();
+        buildPoliciesForm();
+        tamingselect();
+        //init();
+    </script>
+
+
+   
+
+</body>
+</html>

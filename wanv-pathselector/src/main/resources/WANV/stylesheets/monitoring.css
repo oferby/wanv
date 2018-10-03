@@ -1,0 +1,329 @@
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #999999;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #2FFF52;
+    color: #000000;
+}
+
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #E84545;
+    color: #000000;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 18px;
+    margin: 6px;
+    background: #FFFFFF;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    -moz-transition: all 0.3s ease-in 0s;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+
+.onoffswitch-table {
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+
+.updownswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.updownswitch-checkbox {
+    display: none;
+}
+
+.updownswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #999999;
+    border-radius: 20px;
+}
+
+.updownswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.updownswitch-inner:before, .updownswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.updownswitch-inner:before {
+    content: "UP";
+    padding-left: 10px;
+    background-color: #2FFF52;
+    color: #000000;
+}
+
+.updownswitch-inner:after {
+    content: "DOWN";
+    padding-right: 10px;
+    background-color: #E84545;
+    color: #000000;
+    text-align: right;
+}
+
+.updownswitch-switch {
+    display: block;
+    width: 18px;
+    margin: 6px;
+    background: #FFFFFF;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    -moz-transition: all 0.3s ease-in 0s;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+
+.updownswitch-checkbox:checked + .updownswitch-label .updownswitch-inner {
+    margin-left: 0;
+}
+
+.updownswitch-checkbox:checked + .updownswitch-label .updownswitch-switch {
+    right: 0px;
+}
+
+
+.updownswitch-table {
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+
+input#round {
+    width: 50px; /*same as the height*/
+    height: 50px; /*same as the width*/
+    background-color: #003096;
+    border: 1px solid #003096; /*same colour as the background*/
+    color: #fff;
+    font-size: 1.6em;
+    /*set the border-radius at half the size of the width and height*/
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    /*give the button a small drop shadow*/
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+    box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+/***NOW STYLE THE BUTTON'S HOVER STATE***/
+input#round:hover {
+    background: #000070;
+    border: 1px solid #000070;
+    /*reduce the size of the shadow to give a pushed effect*/
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+    box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+}
+
+
+button#traffic {
+    width: 50px; /*same as the height*/
+    height: 50px; /*same as the width*/
+    background-color: #003096;
+    border: 1px solid #003096; /*same colour as the background*/
+    color: #fff;
+    font-size: 1.6em;
+    /*set the border-radius at half the size of the width and height*/
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    /*give the button a small drop shadow*/
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+    box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+/***NOW STYLE THE BUTTON'S HOVER STATE***/
+button#traffic:hover {
+    background: #000070;
+    border: 1px solid #000070;
+    /*reduce the size of the shadow to give a pushed effect*/
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+    box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+}
+
+
+
+path.slice{
+    stroke-width:2px;
+}
+polyline{
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+svg text.percent{
+    fill:white;
+    text-anchor:middle;
+    font-size:12px;
+}
+
+div.donuts p
+{
+    text-align:center;
+    font-weight: bold;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+div.graphs0 p {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+div.graphs {
+    border: 1px solid #000000;
+
+}
+
+.node {
+    cursor: pointer;
+}
+
+.overlay{
+    /* background-color:#EEE; */
+
+}
+
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    font-size:10px;
+    font-family:sans-serif;
+}
+
+.link {
+    fill: none;
+    stroke: #222;
+    stroke-width: 1.5px;
+}
+
+.templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.ghostCircle.show{
+    display:block;
+}
+
+.ghostCircle, .activeDrag .ghostCircle{
+    display: none;
+}

@@ -1,0 +1,17 @@
+dialect "java"
+import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScoreHolder;
+import com.huawei.sdn.commons.data.PSFlow;
+import com.huawei.sdn.commons.data.PSConnector;
+import com.huawei.sdn.commons.selector.csp.planning.LinkSelectionSolution;
+
+global HardMediumSoftScoreHolder scoreHolder;
+
+// ############################################################################// Medium constraints - Generated// ############################################################################
+
+rule "VideoWithDelay"
+	when
+		$psflow : PSFlow( (  nwTOS == 40 ||  nwTOS == 48 ) ,  connectorOut == $psconnector )
+		$psconnector : PSConnector(  connectorStatistics.packetLossRate > 5 )
+	then
+		scoreHolder.addMediumConstraintMatch(kcontext, -1 );
+end

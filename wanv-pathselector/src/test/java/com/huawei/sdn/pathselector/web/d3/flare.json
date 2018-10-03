@@ -1,0 +1,47 @@
+{
+  "name": "portsOnIPAddress",
+  "children": [
+    {
+      "name": "22",
+      "children": [
+        {
+          "name": "AgglomerativeCluster",
+          "size": 3938
+        },
+        {
+          "name": "CommunityStructure",
+          "size": 3812
+        },
+        {
+          "name": "HierarchicalCluster",
+          "size": 6714
+        },
+        {
+          "name": "MergeEdge",
+          "size": 743
+        }
+      ]
+    },
+    {
+      "name": "8080",
+      "children": [
+        {
+          "name": "AxisLayout",
+          "size": 6725
+        },
+        {
+          "name": "BundledEdgeRouter",
+          "size": 3727
+        },
+        {
+          "name": "CircleLayout",
+          "size": 9317
+        },
+        {
+          "name": "CirclePackingLayout",
+          "size": 12003
+        }
+      ]
+    }
+  ]
+}

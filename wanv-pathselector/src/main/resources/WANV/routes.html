@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheets/console.css">
+    <script src= "javascripts/angular.min.js"></script>
+</head>
+
+<body>
+<div class="menu">
+    <ul>
+        <li><a href="connectors.html">Connectors</a></li>
+        <li><a href="#">Routes</a></li>
+        <li><a href="flows.html">Flows</a></li>
+        <li></li>
+    </ul>
+</div>
+
+<div ng-app="" ng-controller="routeController">
+    <br/>
+    <div>Site ID: {{ route.siteId }}</div>
+    <br/>
+    <table>
+        <tr>
+            <td class="header">Local Subnets</td>
+        </tr>
+        <tr ng-repeat="x in route.subnetSet">
+            <td>{{ x }}</td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td class="header">Remote Subnets</td>
+            <td class="header"></td>
+        </tr>
+        <tr ng-repeat="x in route.remoteSiteSet">
+            <td>Site ID: {{ x.siteId }}</td>
+            <td>
+                <table>
+                    <tr ng-repeat="y in x.subnetSet">
+                        <td>{{ y }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>
+
+<!--<script src="javascripts/controller/localDataController.js"></script>-->
+<script src="javascripts/controller/restDataController.js"></script>
+
+</body>
+</html>
